@@ -10,10 +10,6 @@ class  Route
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
 
-//        $url = $_GET['url'];
-//        $url = rtrim($url, '/');
-//        $url = explode('/', $url);
-
         if (!empty($routes[1])) {
             $controller_name = $routes[1];
         }
@@ -26,7 +22,7 @@ class  Route
         $controller_name = 'Controller_' . $controller_name;
         $action_name = 'action_' . $action_name;
 
-        $model_name = strtolower($model_name) . '.php';
+        $model_file = strtolower($model_name) . '.php';
         $model_path = "app/models/" . $model_file;
 
         if (file_exists($model_path)) {
@@ -37,12 +33,10 @@ class  Route
         $controller_path = 'app/controllers/' . $controller_file;
 
         if (file_exists($controller_path)) {
-            include $controller_file;
+            include $controller_path;
         } else {
             Route::ErrorPage404();
         }
-
-
 
         $controller = new $controller_name;
         $action = $action_name;
@@ -53,12 +47,11 @@ class  Route
             Route::ErrorPage404();
         }
 
-
     }
 
     static function ErrorPage404()
     {
-        $host = 'http:/' . $_SERVER['HTTP_HOST'] . '/';
+        $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
         header('HTTP/1.1 404 Not Found');
         header('Status: 404 Not Found');
         header('Location:' . $host . '404');
