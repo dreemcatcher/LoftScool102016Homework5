@@ -1,7 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: o
- * Date: 21.11.2016
- * Time: 19:25
- */
+
+class Controller_About extends Controller
+{
+
+    public function action_index()
+    {
+        $this->view->generate('about_view.php', 'template_view.php');
+    }
+}

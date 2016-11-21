@@ -25,9 +25,9 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/">Главная</a></li>
-                <li><a href="/">О сайте</a></li>
-                <li><a href="/">Портфолио</a></li>
-                <li><a href="/">Контакты</a></li>
+                <li><a href="/about/">О сайте</a></li>
+                <li><a href="/portfolio/">Портфолио</a></li>
+                <li><a href="/contact/">Контакты</a></li>
             </ul>
         </div>
     </div>

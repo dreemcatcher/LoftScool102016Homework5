@@ -1,7 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: o
- * Date: 21.11.2016
- * Time: 19:24
- */
+
+class Controller_Contact extends Controller
+{
+
+    public function action_index()
+    {
+        $this->view->generate('contact_view.php', 'template_view.php');
+    }
+}
